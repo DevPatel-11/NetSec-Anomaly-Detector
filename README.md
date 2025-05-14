@@ -1,88 +1,71 @@
-# 🚀 NetSec Anomaly Detector
+# NetSec Anomaly Detector
 
-**NetSec Anomaly Detector** is a cybersecurity project that leverages machine learning to detect anomalies and categorize attacks in network traffic. With the growing frequency of cyber threats, early detection of suspicious behavior is vital to protect sensitive infrastructure.
-
-This project explores both **unsupervised** and **supervised** machine learning techniques on benchmark datasets like **UNSW-NB15**, ultimately selecting **Random Forest** due to its superior classification performance.
+NetSec Anomaly Detector is a machine learning-driven system designed to detect anomalies and categorize different types of attacks in network traffic. Using the UNSW-NB15 dataset, this project evaluates various unsupervised and supervised models for effective intrusion detection and classification.
 
 ---
 
-## 🔥 Features
+## 🧠 Models Implemented
 
-- ✅ **Data Preprocessing**  
-  - Cleaning, encoding, and normalization of network traffic logs.
+### Unsupervised Learning
+- **K-Means Clustering**
+- **Gaussian Mixture Models (GMM)**
+- **Self-Organizing Maps (SOM)**
 
-- ✅ **Model Evaluation & Selection**  
-  - Models tested:
-    - **Unsupervised**:  
-      - **KMeans** – Clustering normal vs. anomalous data  
-      - **GMM (Gaussian Mixture Model)** – Probabilistic clustering  
-      - **MiniSom (Self-Organizing Maps)** – Neural network-based unsupervised learning  
+### Supervised Learning
+- **Random Forest Classifier**
+- **XGBoost Classifier**
+- **Support Vector Classifier (SVC)**
+- **K-Nearest Neighbors Classifier (KNN)**
 
-    - **Supervised**:  
-      - **Random Forest Classifier**  
-      - **XGBoost Classifier**  
-      - **SVC (Support Vector Classifier)**  
-      - **KNN Classifier**
-
-  - Final model: **Random Forest**, based on highest **F1-scores** (micro, macro, weighted)
-
-- ✅ **Multiclass Attack Detection**  
-  - Predicts the `attack_cat` column to identify the type of intrusion (e.g., DoS, Reconnaissance, etc.)
-
-- ✅ **Performance Metrics**  
-  - Evaluation using precision, recall, F1-score (micro, macro, weighted), ROC-AUC, and confusion matrix.
-
-- ✅ **Real-Time Anomaly Simulation**  
-  - Captures live packets using Python & Scapy and flags anomalies in real-time.
+These models support **multiclass detection**, enabling classification of multiple attack categories as well as benign traffic.
 
 ---
 
-## 🔬 Datasets Used
+## 📊 Performance Metrics
 
-- [UNSW-NB15](https://www.kaggle.com/datasets/mrwellsdavid/unsw-nb15)
+Model evaluation was performed using:
+- **Accuracy**
+- **Precision**
+- **Recall**
+- **F1-Score**
+- **Confusion Matrix**
 
----
-
-## 📌 Tech Stack
-
-- **Languages/Tools**:  
-  - **Python**, **Zeek**
-
-- **Libraries & Frameworks**:  
-  - 🧠 Machine Learning: `Scikit-learn`, `XGBoost`, `MiniSom`, `SciPy`  
-  - 📊 Data Processing: `Pandas`, `NumPy`  
-  - 📈 Visualization: `Matplotlib`, `Seaborn`  
-  - 🌐 Networking: `Scapy`, `Zeek`  
-  - (Planned) Dashboard: `Flask` or `Streamlit` for web-based monitoring
+The metrics demonstrate the effectiveness of the classifiers, particularly in complex multiclass scenarios involving various attack types.
 
 ---
 
-## 📈 Model Performance
+## 🧰 Tech Stack
 
-After comparing multiple models, **Random Forest** was selected for its high classification accuracy across:
-
-- ✅ Micro F1-Score  
-- ✅ Macro F1-Score  
-- ✅ Weighted F1-Score  
-
-This model demonstrated strong generalization to unseen network traffic and consistently outperformed others in multiclass classification tasks.
+- **Languages & Libraries**: Python, Pandas, NumPy, Matplotlib, Seaborn
+- **Machine Learning**: Scikit-learn, XGBoost, Joblib
+- **Development Tools**: Jupyter Notebook
+- **Dataset**: UNSW-NB15
+- **Monitoring Tool**: Zeek (planned integration)
 
 ---
 
-## 🔮 Future Enhancements
+## 🚀 Future Enhancements
 
-- 🤖 **Real-Time Prediction Pipeline**  
-  Integrate the trained ML model with **Zeek** to continuously monitor live network traffic and classify anomalies in real-time.
+Planned and suggested improvements for the system include:
 
-- 🌐 **Web-Based Security Dashboard**  
-  Build an intuitive web dashboard to:
-  - Visualize detected anomalies and attack types
-  - View real-time alerts from Zeek-integrated predictions
-  - Track daily/weekly security trends and traffic stats
+1. **Real-Time Zeek Integration**  
+   Connect the trained models with Zeek to monitor live network traffic and classify anomalies on the fly.
 
-- ☁️ **Cloud-Ready Deployment**  
-  Dockerize the solution and deploy it to the cloud (e.g., AWS, Azure) for scalable and continuous network monitoring.
+2. **Web-Based Security Dashboard**  
+   Build an intuitive dashboard for real-time visualization of traffic patterns, alerts, and attack statistics.
 
----
+3. **Cloud Deployment**  
+   Deploy the solution to cloud platforms (e.g., AWS, GCP, Azure) to enable scalable, distributed network monitoring.
 
+4. **Hyperparameter Optimization**  
+   Use automated tuning techniques (e.g., GridSearchCV, Optuna) to improve model performance.
+
+5. **Ensemble Learning**  
+   Combine multiple models to increase detection robustness and reduce false positives.
+
+6. **Threat Intelligence Integration**  
+   Leverage external threat intelligence APIs to enrich detection and provide contextual threat analysis.
+
+7. **SIEM Integration**  
+   Connect the system with Security Information and Event Management (SIEM) platforms to support full-stack threat management.
 
